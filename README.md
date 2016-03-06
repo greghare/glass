@@ -1,6 +1,8 @@
 # Glass
 Simple media and information hub for digital coffee tables
 
+![Screenshot](https://raw.githubusercontent.com/miimario/glass/master/screenshot.PNG)
+
 ##### Existing Features
 - Simple UI
 - Remote controller (using socket.io)
