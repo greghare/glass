@@ -29,4 +29,4 @@ Open a new tab and go to http://localhost:4000  (receiver)
 Enter a direct link to an MP4 or other HTML5 supported video format in the sender and click "send". The receiver will begin playing the video. When it has finished it will return to the main display.
 
 ### Author
-Glass was written and design by [Greg Hare](http://google.com)
+Glass was written and design by [Greg Hare](http://greghare.me)
