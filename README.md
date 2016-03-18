@@ -31,4 +31,4 @@ The receiver will begin playing the video.
 When it has finished it will return to the main display.
 
 ### Author
-Glass was written and design by [Greg Hare](http://greghare.me)
+Glass was written and designed by [Greg Hare](http://greghare.me)
