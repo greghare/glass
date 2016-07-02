@@ -7,15 +7,69 @@
         <link href='css/style.css' rel='stylesheet' type='text/css'>
     </head>
     <body id="app">
-        <h1 id="message">Waiting for media</h1>
+        <h1 id="message">Waiting for Media</h1>
         <!-- <div id="circle"></div> -->
         <div id="line"></div>
-        <video id="myVideo" autoplay>
-            <source id="mySource" src="" type="video/mp4">
+        <video id="video_player" autoplay>
+            <source id="video_source" src="" type="video/mp4">
             Your browser does not support HTML5 video.
         </video>
+        <div id="player"></div>
+        <div id="rippleContainer">
+            <div id="ripple"></div>
+        </div>
         <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
         <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-        <script src="js/app.js"></script>
+        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw=" crossorigin="anonymous"></script>
+        <script src="js/raindrops.js"></script>
+        <script>
+            jQuery('#ripple').raindrops({
+                color:'#2EC4B6',
+                canvasHeight:700,
+                waveLength: 100,
+                rippleSpeed: 0.05,
+                density: 0.04,
+                frequency: 1
+            });
+        </script>
+        <script>
+            var tag = document.createElement('script');
+
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+            var player;
+            function onYouTubeIframeAPIReady() {
+                player = new YT.Player('player', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: 'GELKWLdCTv8',
+                    playerVars: { 'controls': 0, 'showinfo': 0, 'modestbranding': 1, 'rel': 0 },
+                });
+            }
+
+
+            // function onPlayerReady(event) {
+            //     player.setPlaybackQuality("hd1080");
+            //     event.target.playVideo();
+            //     hideUI();
+            // }
+
+            function loadVideo(id) {
+                document.getElementById("player").style.display = "block";
+                player.loadVideoById(id, "hd720")
+                player.playVideo();
+                hideUI();
+            }
+
+            function hideUI() {
+                document.getElementById("message").style.display = "none";
+                document.getElementById("rippleContainer").style.display = "none";
+                document.getElementById("line").style.display = "none";
+            }
+
+            </script>
+            <script src="js/app.js"></script>
     </body>
 </html>

@@ -18,8 +18,12 @@ io.on('connection', function(socket) {
         io.emit('video message', msg);
     });
 
+    socket.on('control_message', function(msg) {
+        io.emit('control_message', msg);
+    });
+
 });
 
 http.listen(4000, function() {
-    console.log('listening on *:4000');
+    console.log('Glass Client started on *:4000');
 });

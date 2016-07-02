@@ -18,8 +18,12 @@ io.on('connection', function(socket) {
         io.emit('video message', msg);
     });
 
+    socket.on('control_message', function(msg) {
+        io.emit('control_message', msg);
+    });
+
 });
 
 http.listen(3000, function() {
-    console.log('listening on *:3000');
+    console.log('Glass Controller started on *:3000');
 });
